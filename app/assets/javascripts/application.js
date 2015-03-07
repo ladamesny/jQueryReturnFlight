@@ -85,8 +85,8 @@ $(document).ready(function(){
   $('form').on('submit', function(e) {
       e.preventDefault();
       var form = $(this);
-    $.ajax('/assets/json', {
-        type: 'POST',
+    $.ajax( '/flights/book.json', {
+        type: 'GET',
         data: form.serialize(),
         dataType: 'json',
         success: function(result) {

@@ -3,4 +3,4 @@ destination: 'Paris, France',
 price: '1,399.99',
 days: '4',
 confirmation: '3dfeab4'
-}
+}.to_json
