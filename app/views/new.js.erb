@@ -1,0 +1,4 @@
+$('.add').fadeOut();
+$("<%= escape_javascript render(file: 'thermometers/new.html.erb') %>").insertBefore('#thermometers');
+$('#new_thermometer').hide().slideDown();
+$('#add').fadeOut();

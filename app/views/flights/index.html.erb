@@ -35,3 +35,39 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row well well-lg">
+    <h2>jQuery Travels - Trip Booker</h2>
+      <div class="col-md-3 col-md-offset-5">
+    <div id="vacation">
+    <form action='/assets/book.json'>
+
+    <div class="form-group">
+       <label for="destination"> Destination</label>
+       <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="destination" name="destination" data-toggle="dropdown" aria-expanded="true">
+          Select a Destination
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu"  role="menu" aria-labelledby="destination">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hawaii</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Paris</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">London</a></li>
+        </ul>
+      </div>
+    </div>
+  <div class="form-group">
+    <label for="quantity">Tickets </label>
+    <input type="text" class="form-control" id="quantity" name="quantity" value="1">
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Book Flight</button>
+  </div>
+</form>
+</div>
+  <p>Call us at 555-25937 to make a reservation today!</p>
+      </div>
+  </div>
+</div>

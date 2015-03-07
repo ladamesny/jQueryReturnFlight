@@ -57,4 +57,24 @@ $(document).ready(function(){
   var paris = new Confirmation($('#paris'));
   var london = new Confirmation($('#london'));
   var hawaii = new Confirmation($('#hawaii'));
+
+  $('form').on('submit', function(e) {
+      e.preventDefault();
+      var form = $(this);
+    $.ajax('/assets/json', {
+        type: 'POST',
+        data: form.serialize(),
+        dataType: 'json',
+        success: function(result) {
+          var msg = $('<p></p>');
+          msg.append('Your vacation to '+result.destination);
+          msg.append(' has been booked for '+result.price);
+          msg.append(' for  '+result.days);
+          msg.append(' nights. Confirmation #'+result.confirmation);
+          form.remove();
+          $('#vacation').hide().html(msg).fadeIn();
+        },
+        contentType: 'application/json'
+    });
+  });
 });
