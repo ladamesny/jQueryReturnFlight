@@ -11,33 +11,11 @@
 <div class="navbar navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="/" class="navbar-brand">jQuery Return Flight</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class='sr-only'>Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-          <li><a href='tickets.html'>Tickets</a></li>
-          <li><a href='stations.html'>Stations</a></li>
-          <li>
-            <a href='about.html' data-target="#" data-toggle="dropdown">About<span class='caret'></span></a>
-            <ul class="dropdown-menu">
-              <li><a href='story.html'>Our Story</a></li>
-              <li><a href='contact.html'>Contact Us</a></li>
-              <li class="divider"></li>
-              <li><a href='/blog'>Blog</a></li>
-              <li class="divider"></li>
-              <li><a href='http://twitter.com/codeschool'>Twitter</a></li>
-              <li><a href='http://facebook.com/codeschool'>Facebook</a></li>
-            </ul>
-          </li>
-        </ul>
+        <%= link_to 'jQuery Return Flight', flights_path, class: "navbar-brand" %>
       </div>
     </div>
-<%= yield %>
+  </div>
+  <%= yield %>
 
 </body>
 </html>

@@ -17,7 +17,7 @@
 ul.flight-listing {
   list-style-type: none;
 }
-div.flight-info {
+div.flight-info, div.pictures {
   text-align: center;
 }
 

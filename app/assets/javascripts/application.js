@@ -35,7 +35,6 @@ function Confirmation(el) {
         beforeSend: function() {
           this.el.addClass('is-loading');
         },
-        data: { "confNum": $(".ticket").data("confNum") },
         complete: function(){
           this.el.removeClass('is-loading');
           }
@@ -47,9 +46,34 @@ function Confirmation(el) {
       $(this).fadeOut();
       confirmation.el.find('.boarding-pass').fadeIn();
     }
-  this.el.on('click', 'button', this.loadConfirmation);
+  this.el.on('click', 'button.flight-details', this.loadConfirmation);
   this.el.on('click','.view-boarding-pass', this.showBoardingPass);
 
+}
+
+function Tour(el) {
+  var tour = this;
+  this.el = el;
+  this.fetchPhotos = function() {
+    $.ajax('/photos.html', {
+      data: {location: tour.el.data('location')},
+      context: tour,
+      success: function(response) {
+        this.el.find('.photos').html(response).fadeIn();
+      },
+      error: function() {
+        this.el.find('.photos').html('<li>There was a problem fetching the latest photos. Please try again.</li>');
+      },
+      timeout: 3000,
+      beforeSend: function() {
+        this.el.addClass('is-fetching');
+      },
+      complete: function() {
+        this.el.removeClass('is-fetching');
+      }
+    });
+  }
+  this.el.on('click', 'button.pics', this.fetchPhotos);
 }
 
 $(document).ready(function(){
@@ -57,4 +81,9 @@ $(document).ready(function(){
   var paris = new Confirmation($('#paris'));
   var london = new Confirmation($('#london'));
   var hawaii = new Confirmation($('#hawaii'));
+
+  var paris = new Tour($('#paris'));
+  var london = new Tour($('#london'));
+  var hawaii = new Tour($('#hawaii'));
+
 });
