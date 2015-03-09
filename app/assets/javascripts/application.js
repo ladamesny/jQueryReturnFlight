@@ -85,7 +85,7 @@ $(document).ready(function(){
   $('form').on('submit', function(e) {
       e.preventDefault();
       var form = $(this);
-    $.ajax( '/flights/book.json', {
+    $.ajax( form.attr('action'), {
         type: 'GET',
         data: form.serialize(),
         dataType: 'json',
@@ -101,4 +101,31 @@ $(document).ready(function(){
         contentType: 'application/json'
     });
   });
+
+  $('button.show_fav').on('click', function(){
+    $.ajax('/flights/favorite', {
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function(result) {
+        $.each(result, function(index, city) {
+          var favorite = $('.favorite-' + index);
+          favorite.find('p').html(city.name);
+          favorite.find('img').attr('src', city.image);
+        })
+      }
+    });
+  });
+
+  $('button.update-status').on('click', function(){
+    $.getJSON('/flights/status', function(result) {
+      var statusElements = $.map(result, function(status, index) {
+        var listItem = $('<li></li>')
+        $('<h3>'+status.name+'</h3>').appendTo(listItem);
+        $('<p>'+status.status+'</p>').appendTo(listItem);
+        return listItem;
+      });
+      $('.status-list').detach().html(statusElements).appendTo('.status')
+    });
+  });
+
 });
