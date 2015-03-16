@@ -14,7 +14,7 @@
  *= require_tree .
  *= require_self
  */
-ul.flight-listing {
+ul.flight-listing, ul.photos {
   list-style-type: none;
 }
 div.flight-info, div.pictures {
@@ -39,6 +39,10 @@ img {
   text-align: right;
 }
 
-.boarding-pass {
+.boarding-pass, .price_line {
   display: none;
+}
+
+.vacation-photo {
+  display: show;
 }
